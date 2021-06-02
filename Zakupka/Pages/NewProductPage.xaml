@@ -1,0 +1,33 @@
+﻿<Page x:Class="Zakupka.NewProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Zakupka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NewProductPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Добавление/Редактирование продукта" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="18"/>
+        <TextBlock Text="Название" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Тип" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Описание" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Title}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="175" Height="30"/>
+        <ComboBox SelectedItem="{Binding ProductType}" Name="comboProduct" DisplayMemberPath="Type" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Width="175" Height="30"/>
+        <TextBox Text="{Binding Description}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Width="300" Height="30"/>
+        
+         <Button Content="Сохранить" Name="btnSave" Click="btnSave_Click" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center"></Button>
+    </Grid>
+</Page>

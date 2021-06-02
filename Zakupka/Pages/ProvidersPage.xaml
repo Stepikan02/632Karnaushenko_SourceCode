@@ -1,0 +1,51 @@
+﻿<Page x:Class="Zakupka.ProvidersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Zakupka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProvidersPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="377*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Поставщики" HorizontalAlignment="Center" FontSize="18"/>
+        <StackPanel Grid.Row="1" Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Поиск" VerticalAlignment="Center"/>
+                <TextBox Width="175" Height="15" x:Name="txtBoxSearch" TextChanged="txtBoxSearch_TextChanged" Margin="32 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировка" VerticalAlignment="Center"/>
+                <ComboBox Name="comboFilter" Width="175" Height="30" SelectionChanged="comboFilter_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+        <DataGrid x:Name="dGridProviders" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название компании" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+                <DataGridTextColumn Header="Рейтинг (1-5 звёзд)" Binding="{Binding CountOfStars}" Width="*"/>
+                <DataGridTemplateColumn Width="100" Header="Редактировать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnEdit" Click="btnEdit_Click" Width="30">
+                                <Image Source="/Resources/editButtonV2.png" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Name="lblNothingFound" Content="По данному запросу не найдено записей" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="1"></Label>
+
+        <Button Grid.Row="3" Content="Добавить" Name="btnAdd" Click="btnAdd_Click" HorizontalAlignment="Left"/>
+        <Button Grid.Row="3" Content="Удалить" Name="btnDel" Click="btnDel_Click" HorizontalAlignment="Right"/>
+    </Grid>
+</Page>
