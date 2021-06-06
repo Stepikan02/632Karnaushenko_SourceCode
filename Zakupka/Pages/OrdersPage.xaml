@@ -28,7 +28,7 @@
         </StackPanel>
         <DataGrid x:Name="dGridOrders" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер в каталоге" Binding="{Binding CatalogId}" Width="*"/>
+                <DataGridTextColumn Header="Номер в каталоге" Binding="{Binding Catalog.Product.Title}" Width="*"/>
                 <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="*"/>
                 <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost}" Width="*"/>
                 <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}" Width="*"/>

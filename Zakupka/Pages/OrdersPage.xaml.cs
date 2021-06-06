@@ -56,7 +56,7 @@ namespace Zakupka
             try 
             {
                 List<Order> currentOrder = PurchaseEntities.GetContext().Order.ToList();
-                currentOrder = currentOrder.Where(p => p.CatalogId.ToString().Contains(txtBoxSearch.Text.ToLower()) || p.Count.ToString().Contains(txtBoxSearch.Text.ToLower()) || p.Cost.ToString().Contains(txtBoxSearch.Text.ToLower())).ToList();
+                currentOrder = currentOrder.Where(p => p.Catalog.Product.Title.ToLower().Contains(txtBoxSearch.Text.ToLower()) || p.Count.ToString().Contains(txtBoxSearch.Text.ToLower()) || p.Cost.ToString().Contains(txtBoxSearch.Text.ToLower())).ToList();
 
                 if (comboFilter.SelectedIndex == 0)
                     dGridOrders.ItemsSource = currentOrder.OrderBy(p => p.Id).ToList();

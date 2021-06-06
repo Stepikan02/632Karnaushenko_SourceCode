@@ -15,7 +15,11 @@
             <TextBlock Text="Пароль" Margin="5"/>
             <TextBox x:Name="textPassBox" Margin="5" Visibility="Collapsed"/>
             <PasswordBox Margin="5" Name="passBox"/>
-            <CheckBox Margin="4 0 0 0" Name="passCheck" Click="passCheck_Click"/>
+            <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                <CheckBox Margin="4 0 0 0" Name="passCheck" Click="passCheck_Click"/>
+                <TextBlock Margin="10 0 0 0" Text="Показать/скрыть пароль"/>
+            </StackPanel>
+            
             <Button Content="Войти" Name="btnGo" Click="btnGo_Click" Margin="5"/>
         </StackPanel>
     </Grid>

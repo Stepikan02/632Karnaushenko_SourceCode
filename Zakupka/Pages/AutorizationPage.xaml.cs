@@ -28,7 +28,7 @@ namespace Zakupka
 
         public static string login = null;
 
-        private void btnGo_Click(object sender, RoutedEventArgs e)
+        public void btnGo_Click(object sender, RoutedEventArgs e)
         {
             if (textPassBox.Text != "")
             {
@@ -59,7 +59,9 @@ namespace Zakupka
                     login = logBox.Text;
                     AddHistory(login, false);
                 }
+                    
             }
+
             PurchaseEntities.GetContext().SaveChanges();
         }
 
